@@ -3,3 +3,7 @@
 > *Titus Winters, Software Engineering at Google*
 
 São diferenças cruciais que diferenciam o papel essencial de cada papel. Embora o desenvolvedor seja focado mais na parte do desenvolvimento e toda a criação do projeto em si, o engenheiro de software, além de fazer o mesmo que o desenvolvedor, acaba tendo mais tarefas além do próprio processo de criação, tais como manutenção, melhorias, e qualquer outra decisão que esteja além do código ou que envolva o projeto. Ou seja, a principal diferença entre o desenvolvedor e o engenheiro de software, é que o desenvolvedor pensa no tempo atual do projeto, e o engenheiro de software pensa além disso tudo, no tempo, na escala e nos trade-offs.
+
+> O que é um trade-off no projeto da API do segundo semestre?
+
+Pelo fato do projeto ser um desktop, acaba perdendo a vantagem de ser multiplataforma, ou seja, além de desktop, também ser web e mobile. Mas em troca disso, a aplicação desktop permite maior flexibilidade de uso e gerenciamento do que um web/mobile forneceria por suas limitações, fazedo com que o usuário tenha mais opções e flexibilidade de uso em troca de portabilidade.
