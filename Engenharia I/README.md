@@ -8,24 +8,23 @@ São diferenças cruciais que diferenciam o papel essencial de cada papel. Embor
 
 Pelo fato do projeto ser um desktop, acaba perdendo a vantagem de ser multiplataforma, ou seja, além de desktop, também ser web e mobile. Mas em troca disso, a aplicação desktop permite maior flexibilidade de uso e gerenciamento do que um web/mobile forneceria por suas limitações, fazedo com que o usuário tenha mais opções e flexibilidade de uso em troca de portabilidade.
 
-<br><br>
+<br>
 
 # Projeto em atividade
-Desenvolvimento de um estudo baseado na criação de um projeto. O tema é uma aplicação de gerenciamento de transportes por vans.
+Desenvolvimento de um estudo baseado na criação de um projeto. O tema é uma aplicação de banco virtual.
 
 ## Atividade de Requisitos
 
 <br>
 
-### Requisitos Funcionais
+### :sparkles: Requisitos Funcionais
 
-<small>Quando mencionado usuário, ao invés de cliente ou motorista em específico, se faz referência a ambos juntos.</small>
+![Caso de uso [Sistema Bancário]](/readme/Caso%20de%20uso%20%5BSistema%20Banc%C3%A1rio%5D%20-%20P%C3%A1gina%201.jpeg)
 
-| Requisito Funcional | Descrição |
-|:--------------------:|:----------:|
-| Cadastro de usuário **(cliente e motorista)** | O usuário poderá criar uma conta no aplicativo |
-| Login do usuário **(cliente e motorista)** | O usuário poderá logar em sua conta previamente criada |
-| Busca por vans disponíveis **(cliente)** | O cliente poderá buscar por vans disponíveis em sua área |
-| Solicitar um contrato com uma van **(cliente)** | O cliente poderá solicitar um contrato com uma van para que a mesma possa realizar seus serviços a esse cliente |
-| Cancelar um contrato com uma van (cliente) | O cliente poderá cancelar um contrato com uma van para encerrar o serviço oferecido |
-| In-app-payment | O usuário poderá realizar pagamentos no próprio aplicativo |
+### :dart: Requisitos não funcionais
+
+- Usabilidade
+- Portabilidade
+- Escalabilidade
+- Separação de Interesses: Modelo MVC
+- Desempenho
