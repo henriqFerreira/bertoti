@@ -10,21 +10,36 @@ Pelo fato do projeto ser um desktop, acaba perdendo a vantagem de ser multiplata
 
 <br>
 
-# Projeto em atividade
-Desenvolvimento de um estudo baseado na criação de um projeto. O tema é uma aplicação de banco virtual.
+<h1 align="center">Projeto em atividade</h1>
+<p align="justify">
+    Desenvolvimento de um estudo baseado na criação de um projeto. O desenvolvimento trabalha no aspecto geral de tudo que é necessário para a boa qualidade de um projeto. Requisitos funcionais e não funcionais, caso de uso, diagrama de classe, etc; são alguns dos conceitos utilizados.
+</p>
 
-## Atividade de Requisitos
+> O tema escolhido foi: **Sistema Bancário**.
 
 <br>
 
+## Atividade de Requisitos
+___
+<br>
+
 ### :sparkles: Requisitos Funcionais
+<p align="center">
 
 ![Caso de uso [Sistema Bancário]](/readme/Caso%20de%20uso%20%5BSistema%20Banc%C3%A1rio%5D%20-%20P%C3%A1gina%201.jpeg)
+</p>
+
+---
+<br>
 
 ### :dart: Requisitos não funcionais
+| Requisito não-funcional | Descrição |
+|:-----------------------:|:---------:|
+| `usabilidade` | - |
+| `Portabilidade` | - |
+| `Escalabilidade` | - |
+| `Separação de Interesses: modelo MVC` | - |
+| `Desempenho` | - |
 
-- Usabilidade
-- Portabilidade
-- Escalabilidade
-- Separação de Interesses: Modelo MVC
-- Desempenho
+---
+<br>
