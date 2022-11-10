@@ -20,26 +20,26 @@ Pelo fato do projeto ser um desktop, acaba perdendo a vantagem de ser multiplata
 <br>
 
 ## Atividade de Requisitos
-___
-<br>
 
 ### :sparkles: Requisitos Funcionais
+Os requisitos funcionais representam tudo aquilo que o sistema faz, em termos de tarefas e ações. 
 <p align="center">
 
 ![Caso de uso [Sistema Bancário]](/readme/Caso%20de%20uso%20%5BSistema%20Banc%C3%A1rio%5D%20-%20P%C3%A1gina%201.jpeg)
 </p>
 
----
-<br>
-
 ### :dart: Requisitos não funcionais
+Os requisitos não funcionais representam a forma como as funcionalidades serão entregues ao usuário. Tratam de quesões como desempenho[¹], usabilidade[²], portabilidade[³], etc.
+
 | Requisito não-funcional | Descrição |
 |:-----------------------:|:---------:|
-| `usabilidade` | - |
-| `Portabilidade` | - |
-| `Escalabilidade` | - |
-| `Separação de Interesses: modelo MVC` | - |
-| `Desempenho` | - |
+| usabilidade | - |
+| Portabilidade | - |
+| Escalabilidade | - |
+| Separação de Interesses: modelo MVC[⁴] | - |
+| Desempenho | - |
 
----
-<br>
+[¹]: Desempenho: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+[²]: Usabilidade: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+[³]: Portabilidade: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+[⁴]: Modelo MVC: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
