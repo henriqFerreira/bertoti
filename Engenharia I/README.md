@@ -12,7 +12,7 @@ Pelo fato do projeto ser um desktop, acaba perdendo a vantagem de ser multiplata
 
 <h1 align="center">Projeto em atividade</h1>
 <p align="justify">
-    Desenvolvimento de um estudo baseado na criação de um projeto. O desenvolvimento trabalha no aspecto geral de tudo que é necessário para a boa qualidade de um projeto. Requisitos funcionais e não funcionais, caso de uso, diagrama de classe, etc; são alguns dos conceitos utilizados.
+    Desenvolvimento de um estudo baseado na criação de um projeto. O desenvolvimento trabalha no aspecto geral de tudo que é necessário para a boa qualidade de um projeto. Requisitos funcionais e não funcionais, caso de uso, diagrama de classes, etc; são alguns dos conceitos utilizados.
 </p>
 
 > O tema escolhido foi: **Sistema Bancário**.
@@ -29,17 +29,24 @@ Os requisitos funcionais representam tudo aquilo que o sistema faz, em termos de
 </p>
 
 ### :dart: Requisitos não funcionais
-Os requisitos não funcionais representam a forma como as funcionalidades serão entregues ao usuário. Tratam de quesões como desempenho[¹], usabilidade[²], portabilidade[³], etc.
+Os requisitos não funcionais representam a forma como as funcionalidades serão entregues ao usuário. Tratam de quesões como desempenho[^1], usabilidade[^2], portabilidade[^3], etc.
 
 | Requisito não-funcional | Descrição |
 |:-----------------------:|:---------:|
-| usabilidade | - |
+| Usabilidade | - |
 | Portabilidade | - |
-| Escalabilidade | - |
-| Separação de Interesses: modelo MVC[⁴] | - |
+| Escalabilidade[^4] | - |
+| Separação de Interesses: modelo MVC[^5] | - |
 | Desempenho | - |
 
-[¹]: Desempenho: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-[²]: Usabilidade: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-[³]: Portabilidade: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-[⁴]: Modelo MVC: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+## Arquitetura do Sistema
+
+### Diagrama de classes UML
+
+
+
+[^1]: Desempenho:: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+[^2]: Usabilidade: Praesent viverra augue nec iaculis condimentum.
+[^3]: Portabilidade: liquam erat volutpat. Etiam ac euismod enim.
+[^4]: Escalabilidade: Proin mattis mi eu orci gravida, et ullamcorper nisi finibus. In semper lectus est, non sagittis eros aliquet vel.
+[^5]: MVC: Integer purus libero, convallis id bibendum ac, venenatis id nibh.
