@@ -521,3 +521,202 @@ class PessoaJuridica implements IPessoa {
     }
 }
 ```
+
+## Executando o sistema
+
+`Main.java`
+Declarando instâncias para agências, pessoas e contas.
+```java
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+        Agencia agenciaLegal = new Agencia("12345", "Agência Legal");
+        IConta contaBonita = new ContaCorrente("11223-3", 100.0, agenciaLegal, 0.2);
+
+        Agencia agenciaCarambolas = new Agencia("98765", "Agencia Carambolas");
+        IConta contaInteligente = new ContaPoupanca("99887-7", 200.0, agenciaCarambolas, "25/03/2001", 0.5);
+
+        HashMap<String, String> enderecoExotico = new HashMap<String, String>() {{
+            put("Rua", "Rua exótica");
+            put("Número", "Número exótico");
+            put("Bairro", "Bairro dos exóticos");
+            put("Cidade", "Cidade exótica");
+        }};
+
+        PessoaFisica clienteExotico = new PessoaFisica(
+                "123.456.789-10",
+                "Exótico de Almeida Soarez",
+                enderecoExotico,
+                contaBonita
+        );
+
+        HashMap<String, String> enderecoMaravilhoso = new HashMap<String, String>() {{
+            put("Rua", "Rua maravilhosa");
+            put("Número", "Número maravilhoso");
+            put("Bairro", "Bairro das maravilhas");
+            put("Cidade", "Cidade maravilhosa");
+        }};
+
+        PessoaJuridica clienteMaravilhoso = new PessoaJuridica(
+                "79.442.144/0001-58",
+                "Maravilhoso da Silva Ltda.",
+                enderecoMaravilhoso,
+                contaInteligente
+        );
+    }
+}
+```
+---
+Testando o **depósito**:
+```
+clienteExotico.exibirConta();
+
+ITransacao deposito = new Deposito(clienteExotico.getConta(), 200, new Date().toString());
+deposito.realizarTransacao();
+
+clienteExotico.exibirConta();
+```
+**Saída:**
+```
+#========== Dados da conta ==========#
+Proprietário da conta: Exótico de Almeida Soarez
+Agência: Agência Legal | 12345
+Conta: 11223-3
+Saldo: 100.0
+#====================================#
+
+#========== Dados da conta ==========#
+Proprietário da conta: Exótico de Almeida Soarez
+Agência: Agência Legal | 12345
+Conta: 11223-3
+Saldo: 300.0
+#====================================#
+```
+---
+Testando o **saque**:
+```
+clienteExotico.exibirConta();
+
+ITransacao saque = new Saque(clienteExotico.getConta(), 50, new Date().toString());
+saque.realizarTransacao();
+
+clienteExotico.exibirConta();
+```
+**Saída:**
+```
+#========== Dados da conta ==========#
+Proprietário da conta: Exótico de Almeida Soarez
+Agência: Agência Legal | 12345
+Conta: 11223-3
+Saldo: 100.0
+#====================================#
+
+#========== Dados da conta ==========#
+Proprietário da conta: Exótico de Almeida Soarez
+Agência: Agência Legal | 12345
+Conta: 11223-3
+Saldo: 50.0
+#====================================#
+```
+---
+Testando a **transferência**:
+```
+clienteExotico.exibirConta();
+clienteMaravilhoso.exibirConta();
+
+ITransacao transferencia = new Transferencia(clienteMaravilhoso.getConta(), clienteExotico.getConta(), 150, new Date().toString());
+transferencia.realizarTransacao();
+
+clienteExotico.exibirConta();
+clienteMaravilhoso.exibirConta();
+```
+**Saída**
+```
+#========== Dados da conta ==========#
+Proprietário da conta: Exótico de Almeida Soarez
+Agência: Agência Legal | 12345
+Conta: 11223-3
+Saldo: 100.0
+#====================================#
+#========== Dados da conta ==========#
+Proprietário da conta: Maravilhoso da Silva Ltda.
+Agência: Agencia Carambolas | 98765
+Conta: 99887-7
+Saldo: 200.0
+#====================================#
+
+#========== Dados da conta ==========#
+Proprietário da conta: Exótico de Almeida Soarez
+Agência: Agência Legal | 12345
+Conta: 11223-3
+Saldo: 250.0
+#====================================#
+#========== Dados da conta ==========#
+Proprietário da conta: Maravilhoso da Silva Ltda.
+Agência: Agencia Carambolas | 98765
+Conta: 99887-7
+Saldo: 50.0
+#====================================#
+```
+
+### Outras funcionalidades:
+Exibir endereço da pessoa.
+```
+clienteExotico.exibirEndereco();
+```
+**Saída:**
+```
+Número: Número exótico
+Bairro: Bairro dos exóticos
+Rua: Rua exótica
+Cidade: Cidade exótica
+```
+---
+Exibir conta da pessoa.
+```
+clienteExotico.exibirConta();
+```
+**Saída:**
+```
+#========== Dados da conta ==========#
+Proprietário da conta: Exótico de Almeida Soarez
+Agência: Agência Legal | 12345
+Conta: 11223-3
+Saldo: 100.0
+#====================================#
+```
+---
+Gerar extrato de transações da conta.
+```
+ITransacao deposito = new Deposito(clienteExotico.getConta(), 200, new Date().toString());
+deposito.realizarTransacao();
+
+ITransacao saque = new Saque(clienteExotico.getConta(), 50, new Date().toString());
+saque.realizarTransacao();
+
+ITransacao transferencia = new Transferencia(clienteMaravilhoso.getConta(), clienteExotico.getConta(), 150, new Date().toString());
+transferencia.realizarTransacao();
+
+List<ITransacao> extrato = clienteExotico.getConta().getExtrato();
+for (ITransacao iTransacao: extrato) {
+    System.out.println(iTransacao);
+}
+```
+**Saída:**
+```
+Destinatário: 11223-3
+Valor da transação: 200.0
+Data da transação: Wed Nov 23 16:49:30 BRT 2022
+
+Destinatário: 11223-3
+Valor do saque: 50.0
+Data da realização do saque: Wed Nov 23 16:49:30 BRT 2022
+
+Remetente: 99887-7
+Destinatário: 11223-3
+Valor da transferência: 150.0
+Data da transferência: Wed Nov 23 16:49:30 BRT 2022
+```

@@ -37,16 +37,5 @@ public class Main {
                 enderecoMaravilhoso,
                 contaInteligente
         );
-
-        clienteExotico.exibirConta();
-
-        ITransacao saque = new Saque(clienteExotico.getConta(), 50, new Date().toString());
-        saque.realizarTransacao();
-
-        clienteExotico.exibirConta();
-        List<ITransacao> extrato = clienteExotico.getConta().getExtrato();
-        for (ITransacao iTransacao : extrato) {
-            System.out.println(iTransacao + "\n");
-        }
     }
 }
