@@ -2,49 +2,49 @@
 >
 > *Titus Winters, Software Engineering at Google*
 
-São diferenças cruciais que diferenciam o papel essencial de cada papel. Embora o desenvolvedor seja focado mais na parte do desenvolvimento e toda a criação do projeto em si, o engenheiro de software, além de fazer o mesmo que o desenvolvedor, acaba tendo mais tarefas além do próprio processo de criação, tais como manutenção, melhorias, e qualquer outra decisão que esteja além do código ou que envolva o projeto. Ou seja, a principal diferença entre o desenvolvedor e o engenheiro de software, é que o desenvolvedor pensa no tempo atual do projeto, e o engenheiro de software pensa além disso tudo, no tempo, na escala e nos trade-offs.
+São diferenças cruciais que diferenciam o papel essencial de cada papel. Embora o desenvolvedor seja focado mais na parte do desenvolvimento e toda a criação do projeto em si, o engenheiro de ‘software’, além de fazer o mesmo que o desenvolvedor, acaba tendo mais tarefas além do próprio processo de criação, tais como manutenção, melhorias, e qualquer outra decisão que esteja além do código e projeto. Ou seja, a principal diferença entre o desenvolvedor e o engenheiro de ‘software’, é que o desenvolvedor pensa no tempo atual do projeto, e o engenheiro de ‘software’ pensa, além disso, no tempo, na escala e nos trade-offs.
 
 > O que é um trade-off no projeto da API do segundo semestre?
 
-Pelo fato do projeto ser um desktop, acaba perdendo a vantagem de ser multiplataforma, ou seja, além de desktop, também ser web e mobile. Mas em troca disso, a aplicação desktop permite maior flexibilidade de uso e gerenciamento do que um web/mobile forneceria por suas limitações, fazedo com que o usuário tenha mais opções e flexibilidade de uso em troca de portabilidade.
+Pelo fato do projeto ser um ‘desktop’, acaba perdendo a vantagem de ser multiplataforma, ou seja, além de ‘desktop’, também ser ‘web’ e mobile. Mas em troca disso, a aplicação ‘desktop’ permite maior flexibilidade de uso e gerenciamento do que uma ‘web’/mobile forneceria por suas limitações, fazendo com que o usuário tenha mais opções e flexibilidade de uso em troca de portabilidade.
 
 <br>
 
 <h1 align="center">Projeto em atividade</h1>
 <p align="justify">
-    Desenvolvimento de um estudo baseado na criação de um projeto. O desenvolvimento trabalha no aspecto geral de tudo que é necessário para a boa qualidade de um projeto. Requisitos funcionais e não funcionais, caso de uso, diagrama de classes, etc; são alguns dos conceitos utilizados.
+    Desenvolvimento de um estudo baseado na criação de um projeto. O desenvolvimento trabalha no aspecto geral de tudo necessário para a boa qualidade de um projeto. Requisitos funcionais e não funcionais, caso de uso, diagrama de classes, etc.; são alguns dos conceitos utilizados.
 </p>
 
-> O tema escolhido foi: **Sistema Bancário**.
+> O tema escolhido foi: **sistema bancário**.
 
 <br>
 
 ## Atividade de Requisitos
 
 ### :sparkles: Requisitos Funcionais
-Os requisitos funcionais representam tudo aquilo que o sistema faz, em termos de tarefas e ações. 
+Os requisitos funcionais representam tudo aquilo que o sistema faz, em tarefas e ações. 
 <p align="center">
 
 ![Caso de uso [Sistema Bancário]](/readme/Caso%20de%20uso%20%5BSistema%20Banc%C3%A1rio%5D%20-%20P%C3%A1gina%201.jpeg)
 </p>
 
 ### :dart: Requisitos não funcionais
-Os requisitos não funcionais representam a forma como as funcionalidades serão entregues ao usuário. Tratam de quesões como desempenho[^1], usabilidade[^2], portabilidade[^3], etc.
+Os requisitos não funcionais representam como as funcionalidades serão entregues ao usuário. Tratam de questões como desempenho, usabilidade, portabilidade, etc.
 
-| Requisito não-funcional | Descrição |
-|:-----------------------:|:---------:|
-| Usabilidade | - |
-| Portabilidade | - |
-| Escalabilidade[^4] | - |
-| Separação de Interesses: modelo MVC[^5] | - |
-| Desempenho | - |
+| Requisito não-funcional             |
+|:------------------------------------|
+| Usabilidade                         |
+| Portabilidade                       |
+| Escalabilidade                      |
+| Separação de Interesses: modelo MVC |
+| Desempenho                          |
 
 ## Arquitetura do Sistema
 
 ### Diagrama de classes UML
 <p align="center">
 
-![Diagrama de classes [Sistema Bancário]](/readme/Diagrama%20de%20classes%20UML%20%5BSistema%20Banc%C3%A1rio%5D%20-%20P%C3%A1gina%201.png)
+![Diagrama de classes [Sistema Bancário]](/readme/Diagrama%20de%20classes%20UML%20%5BSistema%20Banc%C3%A1rio%5D.png)
 </p>
 
 ## Desenvolvimento do código
@@ -214,6 +214,32 @@ class ContaCorrente implements IConta {
 }
 ```
 
+`classe Agencia`
+```java
+class Agencia {
+    protected String numAgencia;
+    protected String nomeAgencia;
+
+    public Agencia (String numAgencia, String nomeAgencia) {
+        this.numAgencia = numAgencia;
+        this.nomeAgencia = nomeAgencia;
+    }
+
+    public String getNumAgencia() {
+        return numAgencia;
+    }
+    public String getNomeAgencia() {
+        return nomeAgencia;
+    }
+    public void setNumAgencia(String numAgencia) {
+        this.numAgencia = numAgencia;
+    }
+    public void setNomeAgencia(String nomeAgencia) {
+        this.nomeAgencia = nomeAgencia;
+    }
+}
+```
+
 `interface ITransacao`
 ```java
 interface ITransacao {
@@ -294,8 +320,204 @@ public class Transferencia implements ITransacao {
 }
 ```
 
-[^1]: Desempenho:: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-[^2]: Usabilidade: Praesent viverra augue nec iaculis condimentum.
-[^3]: Portabilidade: liquam erat volutpat. Etiam ac euismod enim.
-[^4]: Escalabilidade: Proin mattis mi eu orci gravida, et ullamcorper nisi finibus. In semper lectus est, non sagittis eros aliquet vel.
-[^5]: MVC: Integer purus libero, convallis id bibendum ac, venenatis id nibh.
+`classe Saque`
+```java
+public class Saque implements ITransacao {
+    String dataAtual;
+    double valor;
+    IConta destinatario;
+
+    public Saque(IConta destinatario, double valor, String dataAtual) {
+        this.destinatario = destinatario;
+        this.valor = valor;
+        this.dataAtual = dataAtual;
+    }
+
+    @Override
+    public void realizarTransacao() {
+        destinatario.setSaldo(destinatario.getSaldo() - valor);
+        destinatario.addToExtrato(new Saque(this.destinatario, this.valor, this.dataAtual));
+    }
+
+    @Override
+    public String toString() {
+        String texto = """
+                Destinatário: %s
+                Valor do saque: %s
+                Data da realização do saque: %s
+                """;
+        return String.format(texto, this.destinatario.getNumConta(), this.valor, this.dataAtual);
+    }
+}
+```
+
+`interface IPessoa`
+```java
+import java.util.HashMap;
+
+public interface IPessoa {
+    HashMap<String, String> getEndereco();
+    void setEndereco(HashMap<String, String> endereco);
+    void exibirEndereco();
+    IConta getConta();
+    void exibirConta();
+}
+```
+
+`classe PessoaFisica`
+```java
+import java.util.HashMap;
+
+class PessoaFisica implements IPessoa {
+    private String cpf;
+    private String nomePessoa;
+    private HashMap<String, String> endereco;
+    private IConta conta;
+
+    public PessoaFisica(String cpf, String nomePessoa, HashMap<String, String> endereco, IConta conta) {
+        this.cpf = cpf;
+        this.nomePessoa = nomePessoa;
+        this.conta = conta;
+        this.endereco = endereco;
+    }
+
+    @Override
+    public HashMap<String, String> getEndereco() {
+        return this.endereco;
+    }
+
+    @Override
+    public void setEndereco(HashMap<String, String> endereco) {
+        this.endereco = endereco;
+    }
+
+    @Override
+    public void exibirEndereco() {
+        for (String nome : endereco.keySet()) {
+            String key = nome.toString();
+            String value = endereco.get(nome).toString();
+            System.out.println(key + ": " + value);
+        }
+    }
+
+    @Override
+    public IConta getConta() {
+        return this.conta;
+    }
+
+    @Override
+    public void exibirConta() {
+        String conta = """
+                #========== Dados da conta ==========#
+                Proprietário da conta: %s
+                Agência: %s | %s
+                Conta: %s
+                Saldo: %s
+                #====================================#
+                """;
+        System.out.printf(
+                conta,
+                this.getNomePessoa(),
+                this.conta.getAgencia().getNomeAgencia(),
+                this.conta.getAgencia().getNumAgencia(),
+                this.conta.getNumConta(),
+                this.conta.getSaldo()
+        );
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getNomePessoa() {
+        return nomePessoa;
+    }
+
+    public void setNomePessoa(String nomePessoa) {
+        this.nomePessoa = nomePessoa;
+    }
+}
+```
+
+`classe PessoaJuridica`
+```java
+import java.util.HashMap;
+
+class PessoaJuridica implements IPessoa {
+    private String cnpj;
+    private String razaoSocial;
+    private HashMap<String, String> endereco;
+    private IConta conta;
+
+    public PessoaJuridica(String cnpj, String razaoSocial, HashMap<String, String> endereco, IConta conta) {
+        this.cnpj = cnpj;
+        this.razaoSocial = razaoSocial;
+        this.endereco = endereco;
+        this.conta = conta;
+    }
+
+    @Override
+    public HashMap<String, String> getEndereco() {
+        return this.endereco;
+    }
+
+    @Override
+    public void setEndereco(HashMap<String, String> endereco) {
+        this.endereco = endereco;
+    }
+
+    @Override
+    public void exibirEndereco() {
+        for (String nome : endereco.keySet()) {
+            String key = nome.toString();
+            String value = endereco.get(nome).toString();
+            System.out.println(key + ": " + value);
+        }
+    }
+
+    @Override
+    public IConta getConta() {
+        return this.conta;
+    }
+
+    @Override
+    public void exibirConta() {
+        String conta = """
+                #========== Dados da conta ==========#
+                Proprietário da conta: %s
+                Agência: %s | %s
+                Conta: %s
+                Saldo: %s
+                #====================================#
+                """;
+        System.out.printf(
+                conta,
+                this.getRazaoSocial(),
+                this.conta.getAgencia().getNomeAgencia(),
+                this.conta.getAgencia().getNumAgencia(),
+                this.conta.getNumConta(),
+                this.conta.getSaldo()
+        );
+    }
+
+    public String getCnpj() {
+        return this.cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    public String getRazaoSocial() {
+        return this.razaoSocial;
+    }
+
+    public void setRazaoSocial(String razaoSocial) {
+        this.razaoSocial = razaoSocial;
+    }
+}
+```
