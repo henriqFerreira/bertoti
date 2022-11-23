@@ -1,12 +1,14 @@
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         Agencia agenciaLegal = new Agencia("12345", "Agência Legal");
-        ContaCorrente contaBonita = new ContaCorrente("11223-3", 100.0, agenciaLegal, 0.2);
+        IConta contaBonita = new ContaCorrente("11223-3", 100.0, agenciaLegal, 0.2);
 
         Agencia agenciaCarambolas = new Agencia("98765", "Agencia Carambolas");
-        ContaPoupanca contaInteligente = new ContaPoupanca("99887-7", 200.0, agenciaCarambolas, "25/03/2001", 0.5);
+        IConta contaInteligente = new ContaPoupanca("99887-7", 200.0, agenciaCarambolas, "25/03/2001", 0.5);
 
         HashMap<String, String> enderecoExotico = new HashMap<String, String>() {{
             put("Rua", "Rua exótica");
@@ -36,6 +38,15 @@ public class Main {
                 contaInteligente
         );
 
-        ITransacao deposito = new Deposito(clienteExotico);
+        clienteExotico.exibirConta();
+
+        ITransacao saque = new Saque(clienteExotico.getConta(), 50, new Date().toString());
+        saque.realizarTransacao();
+
+        clienteExotico.exibirConta();
+        List<ITransacao> extrato = clienteExotico.getConta().getExtrato();
+        for (ITransacao iTransacao : extrato) {
+            System.out.println(iTransacao + "\n");
+        }
     }
 }

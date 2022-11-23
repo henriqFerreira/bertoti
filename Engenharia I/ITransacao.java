@@ -1,3 +1,3 @@
 interface ITransacao {
-    void realizarTransacao(double valor);
+    void realizarTransacao();
 }

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 class ContaPoupanca implements IConta {
@@ -6,7 +7,7 @@ class ContaPoupanca implements IConta {
     private String dataAniv;
     private String numConta;
     private Agencia agencia;
-    private List<ITransacao> extrato;
+    private final List<ITransacao> extrato = new ArrayList<>();
 
     public ContaPoupanca(String numConta, double saldo, Agencia agencia, String dataAniv, double rendimento) {
         this.numConta = numConta;
