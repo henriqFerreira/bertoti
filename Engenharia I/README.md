@@ -42,8 +42,254 @@ Os requisitos não funcionais representam a forma como as funcionalidades serão
 ## Arquitetura do Sistema
 
 ### Diagrama de classes UML
+![Diagrama de classes [Sistema Bancário]](/readme/Diagrama%20de%20classes%20UML%20%5BSistema%20Banc%C3%A1rio%5D%20-%20P%C3%A1gina%201.png)
 
+## Desenvolvimento do código
 
+`Interface IConta`
+```java
+public interface IConta {
+    List<ITransacao> getExtrato();
+    void addToExtrato(ITransacao transacao);
+    
+    void setSaldo(double valor);
+    double getSaldo();
+    
+    void setNumConta(String numConta);
+    String getNumConta();
+    
+    void setAgencia(Agencia agencia);
+    Agencia getAgencia();
+}
+```
+
+`Classe ContaPoupanca`
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+class ContaPoupanca implements IConta {
+    private double saldo;
+    private double rendimento;
+    private String dataAniv;
+    private String numConta;
+    private Agencia agencia;
+    private final List<ITransacao> extrato = new ArrayList<>();
+    
+    public ContaPoupanca(String numConta, double saldo, Agencia agencia, String dataAniv, double rendimento) {
+        this.numConta = numConta;
+        this.saldo = saldo;
+        this.agencia = agencia;
+        this.dataAniv = dataAniv;
+        this.rendimento = rendimento;
+    }
+
+    @Override
+    public List<ITransacao> getExtrato() {
+        return this.extrato;
+    }
+
+    @Override
+    public void addToExtrato(ITransacao transacao) {
+        extrato.add(transacao);
+    }
+
+    @Override
+    public void setSaldo(double valor) {
+        this.saldo = valor;
+    }
+
+    @Override
+    public double getSaldo() {
+        return this.saldo;
+    }
+
+    @Override
+    public void setNumConta(String numConta) {
+        this.numConta = numConta;
+    }
+
+    @Override
+    public String getNumConta() {
+        return this.numConta;
+    }
+
+    @Override
+    public void setAgencia(Agencia agencia) {
+        this.agencia = agencia;
+    }
+
+    @Override
+    public Agencia getAgencia() {
+        return this.agencia;
+    }
+
+    public String getDataAniv() {
+        return dataAniv;
+    }
+    public void setDataAniv(String dataAniv) {
+        this.dataAniv = dataAniv;
+    }
+    public double getRendimento() {
+        return rendimento;
+    }
+    public void setRendimento(double rendimento) {
+        this.rendimento = rendimento;
+    }
+    public void aplicarRendimento() {
+        setSaldo(getSaldo() + (getSaldo() * rendimento));
+    }
+}
+```
+
+`classe ContaCorrente`
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+class ContaCorrente implements IConta {
+    private double taxa;
+    private double saldo;
+    private String numConta;
+    private Agencia agencia;
+    private final List<ITransacao> extrato = new ArrayList<>();
+
+    public ContaCorrente(String numConta, double saldo, Agencia agencia, double taxa) {
+        this.numConta = numConta;
+        this.saldo = saldo;
+        this.agencia = agencia;
+        this.taxa = taxa;
+    }
+
+    @Override
+    public List<ITransacao> getExtrato() {
+        return this.extrato;
+    }
+
+    @Override
+    public void addToExtrato(ITransacao transacao) {
+        extrato.add(transacao);
+    }
+
+    @Override
+    public void setSaldo(double valor) {
+        this.saldo = valor;
+    }
+
+    @Override
+    public double getSaldo() {
+        return this.saldo;
+    }
+
+    @Override
+    public void setNumConta(String numConta) {
+        this.numConta = numConta;
+    }
+
+    @Override
+    public String getNumConta() {
+        return this.numConta;
+    }
+
+    @Override
+    public void setAgencia(Agencia agencia) {
+        this.agencia = agencia;
+    }
+
+    @Override
+    public Agencia getAgencia() {
+        return this.agencia;
+    }
+
+    public double getTaxa() {
+        return taxa;
+    }
+    public void setTaxa(double taxa) {
+        this.taxa = taxa;
+    }
+    public void aplicarTaxa(double taxa) {}
+}
+```
+
+`interface ITransacao`
+```java
+interface ITransacao {
+    void realizarTransacao();
+}
+```
+
+`classe Deposito`
+```java
+public class Deposito implements ITransacao {
+    String dataAtual;
+    double valor;
+    IConta destinatario;
+
+    public Deposito(IConta destinatario, double valor, String dataAtual) {
+        this.destinatario = destinatario;
+        this.valor = valor;
+        this.dataAtual = dataAtual;
+    }
+
+    @Override
+    public void realizarTransacao() {
+        destinatario.setSaldo(destinatario.getSaldo() + valor);
+        destinatario.addToExtrato(new Deposito(this.destinatario, this.valor, this.dataAtual));
+    }
+
+    @Override
+    public String toString() {
+        String texto = """
+                Destinatário: %s
+                Valor da transação: %s
+                Data da transação: %s
+                """;
+        return String.format(texto, this.destinatario.getNumConta(), this.valor, this.dataAtual);
+    }
+}
+```
+
+`classe Transferencia`
+```java
+import java.util.List;
+
+public class Transferencia implements ITransacao {
+    String dataAtual;
+    double valor;
+    IConta remetente;
+    IConta destinatario;
+
+    public Transferencia(IConta remetente, IConta destinatario, double valor, String dataAtual) {
+        this.remetente = remetente;
+        this.destinatario = destinatario;
+        this.valor = valor;
+        this.dataAtual = dataAtual;
+    }
+
+    @Override
+    public void realizarTransacao() {
+        remetente.setSaldo(remetente.getSaldo() - valor);
+        destinatario.setSaldo(destinatario.getSaldo() + valor);
+
+        List<ITransacao> extratoRem = this.remetente.getExtrato();
+        extratoRem.add(new Transferencia(this.remetente, this.destinatario, this.valor, this.dataAtual));
+
+        List<ITransacao> extratoDes = this.destinatario.getExtrato();
+        extratoDes.add(new Transferencia(this.remetente, this.destinatario, this.valor, this.dataAtual));
+    }
+
+    @Override
+    public String toString() {
+        String texto = """
+                Remetente: %s
+                Destinatário: %s
+                Valor da transferência: %s
+                Data da transferência: %s
+                """;
+        return String.format(texto, this.remetente.getNumConta(), this.destinatario.getNumConta(), this.valor, this.dataAtual);
+    }
+}
+```
 
 [^1]: Desempenho:: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 [^2]: Usabilidade: Praesent viverra augue nec iaculis condimentum.
