@@ -42,7 +42,10 @@ Os requisitos não funcionais representam a forma como as funcionalidades serão
 ## Arquitetura do Sistema
 
 ### Diagrama de classes UML
+<p align="center">
+
 ![Diagrama de classes [Sistema Bancário]](/readme/Diagrama%20de%20classes%20UML%20%5BSistema%20Banc%C3%A1rio%5D%20-%20P%C3%A1gina%201.png)
+</p>
 
 ## Desenvolvimento do código
 
