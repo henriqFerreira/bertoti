@@ -9,7 +9,8 @@
 
 1.1 → Conteúdo não-textual
 
-
+![Site do governo](/readme/IHC/governo.png)
+![Google tradutor](/readme/IHC/tradutor.png)
 
 - Referência
   - [Web Content Accessibility Guidelines (WCAG) 2](https://www.w3.org/WAI/WCAG21/quickref/#principle1)
