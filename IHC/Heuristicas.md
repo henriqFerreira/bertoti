@@ -42,6 +42,19 @@
 
 ![Pesquisa google](/readme/IHC/google_min.png)
 
+---
+
+- [x] 3.2.3 → Navegação consistente
+
+:heavy_check_mark: <i>Exemplo do Youtube onde a navegação entre os vídeos é intuitiva e simples, separado corretamente entre vídeos e shorts</i>
+
+![Youtube](/readme/IHC/youtube.png)
+
+---
+
+:x: <i>Exemplo de um portifólio de um desenvolvedor onde a navegação entre seus projetos é complicada, já que estão em constante movimento</i>
+
+![Portfolio](/readme/IHC/portifolio.gif)
 
 - Referência
   - [Web Content Accessibility Guidelines (WCAG) 2](https://www.w3.org/WAI/WCAG21/quickref/#principle1)
