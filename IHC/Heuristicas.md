@@ -9,5 +9,23 @@
 
 1.1 → Conteúdo não-textual
 
+:heavy_check_mark:  <i>Exemplo de um site que fornece a opção de Libras, um meio gestual-visual.</i>
+![Governo Digital](/readme/IHC/governo.png)
+
+---
+
+:heavy_check_mark: <i>Exemplo do [Google Tradutor](https://translate.google.com.br/?hl=pt-BR&sl=en&tl=pt&text=Hello&op=translate) que permite a tradução por voz</i>
+![Google Tradutor](/readme/IHC/tradutor.png)
+
+### Princípio 3
+> Informação e a operação da interface de usuário devem ser entendíveis
+
+3.1 → Conteúdo legível
+
+:x: <i>Exemplo de uma corrida na 99, onde, no começo mostra um valor, e ao final da corrida é exibido um valor diferente</i>
+
+![99 preço diferente](/readme/IHC/uber_2.jpg)
+![99 preço diferente](/readme/IHC/uber_1.jpg)
+
 - Referência
   - [Web Content Accessibility Guidelines (WCAG) 2](https://www.w3.org/WAI/WCAG21/quickref/#principle1)
