@@ -24,8 +24,9 @@
 
 :x: <i>Exemplo de uma corrida na 99, onde, no começo mostra um valor, e ao final da corrida é exibido um valor diferente</i>
 
-![99 preço diferente](/readme/IHC/uber_2.jpg)
-![99 preço diferente](/readme/IHC/uber_1.jpg)
-
+<div style="display: flex;">
+  <img src="/readme/IHC/uber_2.jpg" alt="99 preço diferente" width="400" />
+  <img src="/readme/IHC/uber_1.jpg" alt="99 preço diferente" width="400" />
+</div>
 - Referência
   - [Web Content Accessibility Guidelines (WCAG) 2](https://www.w3.org/WAI/WCAG21/quickref/#principle1)
