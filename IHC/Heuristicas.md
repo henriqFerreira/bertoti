@@ -33,6 +33,8 @@
   <img src="/readme/IHC/uber_1.jpg" alt="99 preço diferente" width="400" />
 </div>
 
+---
+
 - [x] 3.2 → Previsível
 
 :heavy_check_mark: <i>Exemplo do Google onde o design é feito de forma minimalista, deixando previsível a intenção e funcionalidade da página</i>
