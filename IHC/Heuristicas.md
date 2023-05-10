@@ -21,6 +21,19 @@
 
 ![Google Tradutor](/readme/IHC/tradutor.png)
 
+### Princípio 2
+> Componentes de interface de usuário e navegação devem ser operáveis
+
+- [x] 2.4.3 → Ordem de foco
+
+:x: <i>Exemplo da UOL, onde não há ordem de foco e o usuário perde a sequência de navegação facilmente.</i>
+![Uol](/readme/IHC/uol-index.png)
+
+---
+
+:heavy_check_mark: <i>Exemplo a Globo, onde a página é estruturada corretamente e consequentemente é possível ter uma ordem de foco e de navegação</i>
+![Globo](/readme/IHC/globo-index.png)
+
 ### Princípio 3
 > Informação e a operação da interface de usuário devem ser entendíveis
 
