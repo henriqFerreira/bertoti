@@ -6,7 +6,7 @@
 
 ## Exemplo
 
-![Diagrama Strategy](/src/assets/diagrama_strategy.png);
+![Strategy Diagram](/Engenharia%20III/Strategy/src/assets/diagrama_strategy.png)
 
 ### Código
 
