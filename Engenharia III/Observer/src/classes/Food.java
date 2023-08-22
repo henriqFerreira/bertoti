@@ -4,7 +4,7 @@ import interfaces.IProduto;
 
 public class Food implements IProduto {
     @Override
-    public void _notify() {
+    public void update() {
         System.out.println("Food notification received!");
     }
 }

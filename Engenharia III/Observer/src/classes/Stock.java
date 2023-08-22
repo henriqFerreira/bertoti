@@ -21,13 +21,17 @@ public class Stock {
         observers.remove(o);
     }
 
+    public void _notify() {
+        for (IObserver o : observers) {
+            o.update();
+        }
+    }
+
     public void setInStock(boolean b) {
         inStock = b;
 
         if (!inStock) return;
 
-        for (IObserver o : observers) {
-            o._notify();
-        }
+        this._notify();
     }
 }

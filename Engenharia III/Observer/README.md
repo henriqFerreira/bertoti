@@ -33,36 +33,51 @@ public class Main {
 Stock.java (src/classes/Stock.java)
 
 ```java
+package classes;
+
+import java.util.ArrayList;
+import java.util.List;
+import interfaces.IObserver;
+
 public class Stock {
     private boolean inStock;
     private List<IObserver> observers;
+
     public Stock() {
         inStock = false;
         observers = new ArrayList<IObserver>();
     }
+
     public void addObserver(IObserver o) {
         observers.add(o);
     }
+
     public void removeObserver(IObserver o) {
         observers.remove(o);
     }
-    public void setInStock(boolean b) {
-        inStock = b;
- 
-        if (!inStock) return;
- 
+
+    public void _notify() {
         for (IObserver o : observers) {
-            o._notify();
+            o.update();
         }
     }
+
+    public void setInStock(boolean b) {
+        inStock = b;
+
+        if (!inStock) return;
+
+        this._notify();
+    }
 }
+
 ```
 
 IObserver.java (src/interfaces/IObserver.java)
 
 ```java
 public interface IObserver {
-    void _notify();
+    void update();
 }
 ```
 
@@ -83,7 +98,7 @@ import interfaces.IProduto;
 
 public class Food implements IProduto {
     @Override
-    public void _notify() {
+    public void update() {
         System.out.println("Food notification received!");
     }
 }
@@ -98,7 +113,7 @@ import interfaces.IProduto;
 
 public class Technology implements IProduto {
     @Override
-    public void _notify() {
+    public void update() {
         System.out.println("Technology notification received!");
     }
 }
