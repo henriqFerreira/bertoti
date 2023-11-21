@@ -45,6 +45,3 @@
         <td>Runtime Environment (Ambiente de Execução): O ambiente de execução Java (JVM) é uma implementação do Padrão Singleton. Garante que apenas uma instância da máquina virtual Java seja criada em um processo. Além disso, a classe java.lang.Runtime é uma fachada singleton que fornece acesso ao ambiente de execução em tempo de execução, permitindo operações como coleta de lixo e execução de comandos do sistema.</td>
     </tr>
 </table>
-
-</body>
-</html>

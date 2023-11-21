@@ -4,7 +4,7 @@
 
 ## Exemplo
 
-![Strategy Diagram](/Engenharia%20III/Strategy/src/assets/diagrama_singleton.png)
+![Strategy Diagram](/Engenharia%20III/Singleton/src/assets/diagrama_singleton.png)
 
 ### Código
 
