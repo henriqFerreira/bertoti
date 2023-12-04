@@ -1,8 +1,8 @@
 package classes;
 
-import interfaces.IProduto;
+import interfaces.IObserver;
 
-public class Food implements IProduto {
+public class Food implements IObserver {
     @Override
     public void update() {
         System.out.println("Food notification received!");
