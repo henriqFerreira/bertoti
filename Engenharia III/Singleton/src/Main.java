@@ -28,6 +28,6 @@ public class Main {
 
 		DatabasePool pool2 = DatabasePool.getInstance();
 
-		Connection connection_4 = pool2.getConnection();
+		pool2.getConnection();
 	}
 }
